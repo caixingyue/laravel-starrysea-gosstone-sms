@@ -75,7 +75,7 @@ cp vendor/starrysea/gosstone/config/gosstonesms.php config/gosstonesms.php
 cp vendor/starrysea/gosstone/database/migrations/create_smsoutbox_table.php.stub database/migrations/2019_01_01_000000_create_smsoutbox_table.php
 ```
 
-现在,运行你的迁移：
+现在，运行你的迁移：
 
 ```bash
 php artisan migrate
