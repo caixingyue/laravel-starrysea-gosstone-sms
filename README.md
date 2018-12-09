@@ -12,7 +12,7 @@
 composer require starrysea/gosstone
 ```
 
-在 Laravel 5.6 中，服务提供商将自动注册。在旧版本的框架中，只需在 config/app.php 文件中添加服务提供程序：
+在 Laravel 5.6 中，服务提供商将自动注册。在旧版本的框架中，只需在 `config/app.php` 文件中添加服务提供程序：
 
 ```php
 'providers' => [
@@ -23,6 +23,39 @@ composer require starrysea/gosstone
 'aliases' => [
     // ...
     'GosstoneSms' => Starrysea\Gosstone\Sms::class,
+];
+```
+
+你可以通过以下方式发布迁移：
+
+```bash
+php artisan vendor:publish --provider="Starrysea\Gosstone\SmsServiceProvider" --tag="migrations"
+```
+
+发布迁移后，你可以通过运行迁移来创建短信发件箱表：
+
+```bash
+php artisan migrate
+```
+
+你可以使用以下命令发布配置文件：
+
+```bash
+php artisan vendor:publish --provider="Starrysea\Gosstone\SmsServiceProvider" --tag="config"
+```
+
+发布时 `config/gosstonesms.php` [配置文件](https://github.com/spatie/laravel-permission/blob/master/config/permission.php) 包含：
+
+```php
+return [
+    // 缓存时间(单位：秒)
+    'cachetime' => 600,
+
+    // 机构ID:用户名
+    'username' => '',
+
+    // 账户密码
+    'password' => '',
 ];
 ```
 
