@@ -44,7 +44,7 @@ php artisan migrate
 php artisan vendor:publish --provider="Starrysea\Gosstone\SmsServiceProvider" --tag="config"
 ```
 
-发布时 `config/gosstonesms.php` [配置文件](https://github.com/spatie/laravel-permission/blob/master/config/permission.php) 包含：
+发布时 `config/gosstonesms.php` [配置文件](https://github.com/caixingyue/laravel-starrysea-gosstone-sms/blob/master/config/gosstonesms.php) 包含：
 
 ```php
 return [
@@ -67,9 +67,23 @@ return [
 composer require starrysea/gosstone
 ```
 
-注册服务提供者和门面：
+复制所需的文件：
 
 ```bash
+cp vendor/starrysea/gosstone/config/gosstonesms.php config/gosstonesms.php
+
+cp vendor/starrysea/gosstone/database/migrations/create_smsoutbox_table.php.stub database/migrations/2019_01_01_000000_create_smsoutbox_table.php
+```
+
+现在,运行你的迁移：
+
+```bash
+php artisan migrate
+```
+
+注册服务提供者和门面：
+
+```php
 $app->register(Starrysea\Gosstone\SmsServiceProvider::class); // 注册 GosstoneSms 服务提供者
 
 class_alias(Starrysea\Gosstone\Sms::class, 'GosstoneSms'); // 添加 GosstoneSms 门面
