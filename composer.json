@@ -1,0 +1,38 @@
+{
+    "name": "starrysea/gosstone",
+    "description": "Gossip SMS API",
+    "homepage": "https://github.com/caixingyue/laravel-starrysea-gosstone-sms",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "caixingyue",
+            "email": "917373332@qq.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/caixingyue/laravel-starrysea-gosstone-sms/issues"
+    },
+    "require": {
+        "php": "^7.0"
+	},
+	"autoload": {
+        "psr-4": {
+            "Starrysea\\Gosstone\\": "src"
+        }
+    },
+	"autoload-dev": {
+        "psr-4": {
+            "Starrysea\\Gosstone\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Starrysea\\Gosstone\\SmsServiceProvider"
+            ],
+            "aliases": {
+                "GosstoneSms": "Starrysea\\Gosstone\\Sms"
+            }
+        }
+    }
+}
