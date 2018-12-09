@@ -26,7 +26,7 @@ composer require starrysea/gosstone
 ];
 ```
 
-你可以通过以下方式发布迁移：
+你可以通过以下方式 [发布迁移](https://github.com/caixingyue/laravel-starrysea-gosstone-sms/blob/master/database/migrations/create_smsoutbox_table.php.stub)：
 
 ```bash
 php artisan vendor:publish --provider="Starrysea\Gosstone\SmsServiceProvider" --tag="migrations"
